@@ -1,0 +1,19 @@
+# Dependency directories
+node_modules/
+dist/
+
+# Env files (CRITICAL)
+.env
+.env.*
+.brain-jot.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+pnpm-debug.log*
+
+# Prisma
+/services/*/prisma/migrations/
