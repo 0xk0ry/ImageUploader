@@ -1,20 +1,20 @@
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import { prisma } from './config/db.js'; // Ensure the path is correct
+import userRouter from './routes/userRoutes.js';
+import { prisma } from './config/db.js';
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+app.use(helmet());
+app.use(cors());
+app.use(express.json());
+app.use('/api/users', userRouter);
 
-// Standard Senior Middleware
-app.use(helmet()); // Protects headers
-app.use(cors());   // Allows frontend access
-app.use(express.json()); // Parses incoming JSON
-
-// Health Check: The "Golden Ticket" for Microservices
 app.get('/health', async (req, res) => {
   try {
-    // A simple query to check if the DB adapter is working
     await prisma.$queryRaw`SELECT 1`;
     res.status(200).json({ status: 'UP', service: 'user-service', db: 'CONNECTED' });
   } catch (error) {
