@@ -4,17 +4,17 @@
     "experimentalSpecifierResolution": "node"
   },
   "compilerOptions": {
-    "target": "ES2022",                          /* Modern Node.js versions support this */
-    "module": "NodeNext",                        /* Best for modern ESM or CJS */
+    "target": "ES2022",
+    "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "types": ["node"],
-    "rootDir": "./src",                          /* Where your TS code lives */
-    "outDir": "./dist",                         /* Where your compiled JS goes */
-    "esModuleInterop": true,                     /* For compatibility with older packages */
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "strict": true,                              /* Enable all strict type-checking */
-    "skipLibCheck": true,                        /* Speeds up compilation */
-    "sourceMap": true,                           /* Helps with debugging in production */
+    "strict": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
     "resolveJsonModule": true
   },
   "include": ["src/**/*"],
