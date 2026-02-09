@@ -1,0 +1,24 @@
+services:
+  post-db:
+    image: postgres:18-alpine
+    container_name: post-service-db
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5433:5432"
+    volumes:
+      - post-db-data:/var/lib/postgresql/data
+  minio:
+      image: minio/minio
+      ports:
+        - "9000:9000"
+        - "9001:9001"
+      environment:
+        MINIO_ROOT_USER: ${MINIO_USER}
+        MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD}
+      command: server /data --console-address ":9001"
+volumes:
+  post-db-data:
