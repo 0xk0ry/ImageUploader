@@ -11,3 +11,9 @@ export const loginSchema = z.object({
   identifier: z.string().min(1, "Username or Email is required"),
   password: z.string().min(1, "Password is required"),
 });
+
+export const updateProfileSchema = z.object({
+  fullName: z.string().max(50).optional(),
+  bio: z.string().max(150).optional(),
+  profilePicUrl: z.string().url().optional(),
+});
