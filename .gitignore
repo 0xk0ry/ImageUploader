@@ -4,7 +4,6 @@ dist/
 
 # Env files (CRITICAL)
 .env
-.env.*
 .brain-jot.md
 
 # OS files

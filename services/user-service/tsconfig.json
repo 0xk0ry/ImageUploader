@@ -1,4 +1,8 @@
 {
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
   "compilerOptions": {
     "target": "ES2022",                          /* Modern Node.js versions support this */
     "module": "NodeNext",                        /* Best for modern ESM or CJS */
