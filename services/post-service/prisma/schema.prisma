@@ -9,11 +9,24 @@ datasource db {
 model Post {
   id       String  @id @default(uuid())
   caption  String? @db.VarChar(2200)
-  imageUrl String
   authorId String
+
+  media PostMedia[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([authorId])
+}
+
+model PostMedia {
+  id    String @id @default(uuid())
+  url   String
+  type  String
+  order Int
+
+  postId String
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@index([postId])
 }
