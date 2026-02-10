@@ -7,6 +7,8 @@
     "dev": "tsx --env-file=.env --watch src/index.ts src/worker.ts",
     "build": "tsc",
     "start": "node dist/index.js",
+    "start:api": "node dist/index.js",
+    "start:worker": "node dist/worker.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev"
   },
