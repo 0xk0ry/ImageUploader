@@ -6,12 +6,19 @@ datasource db {
   provider = "postgresql"
 }
 
-model Post {
-  id       String  @id @default(uuid())
-  caption  String? @db.VarChar(2200)
-  authorId String
+enum PostStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
 
-  media PostMedia[]
+model Post {
+  id       String      @id @default(uuid())
+  caption  String?     @db.VarChar(2200)
+  authorId String
+  status   PostStatus  @default(PENDING)
+  media    PostMedia[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
